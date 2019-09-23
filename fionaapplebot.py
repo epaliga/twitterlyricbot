@@ -12,11 +12,12 @@ import credentials
 auth = tweepy.OAuthHandler(credentials.CONSUMER_KEY, credentials.CONSUMER_SECRET)
 auth.set_access_token(credentials.ACCESS_KEY, credentials.ACCESS_SECRET)
 api = tweepy.API(auth)
+url = 'https://github.com/tycm/twitterlyricbot.git'
 
 
 def getTweet () : 
 
-    directory = urllib.request.urlopen('https://www.azlyrics.com/a/apple.html').read()
+    directory = urllib.request.urlopen(url).read()
     soup = bs.BeautifulSoup(directory, 'lxml')
 
     #Get list of song links from artist page, randomly generate a song to focus on
